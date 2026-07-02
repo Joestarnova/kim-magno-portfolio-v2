@@ -5,6 +5,7 @@ import heroPortrait from '../assets/hero-portrait.png';
 export default function Hero() {
   return (
     <TiltCard
+      className="km-hero-card"
       style={css(
         'position:relative;background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-bd);border-radius:26px;box-shadow:var(--shadow);padding:38px;display:grid;grid-template-columns:1.04fr .96fr;gap:20px;min-height:516px;overflow:hidden',
       )}
@@ -35,8 +36,11 @@ export default function Hero() {
             <line x1="0" y1="6" x2="44" y2="6" strokeDasharray="2 4" />
             <path d="M42 2l6 4-6 4" strokeLinejoin="round" />
           </svg>
-          <div style={css('max-width:300px')}>
-            <p style={css('margin: 0; color: var(--muted); font-size: 16px; line-height: 1.5; width: 302px; height: 105px; text-align: left')}>
+          <div className="km-hero-bio-wrap" style={css('max-width:300px')}>
+            <p
+              className="km-hero-bio-text"
+              style={css('margin: 0; color: var(--muted); font-size: 16px; line-height: 1.5; width: 302px; height: 105px; text-align: left')}
+            >
               Hi, I'm <span style={css('font-weight:700;color:var(--acc)')}>Kim Magno</span>, a software engineer
               specializing in full-stack development and automation with a background in mechanical engineering.
             </p>
@@ -100,28 +104,33 @@ export default function Hero() {
         </div>
       </div>
 
-      <div style={css('position:relative;display:flex;align-items:flex-end;justify-content:center;min-height:448px')}>
+      <div className="km-hero-right" style={css('position:relative;display:flex;align-items:flex-end;justify-content:center;min-height:448px')}>
         <div
+          className="km-hero-visual-glow"
           style={css(
             'position:absolute;top:48%;left:50%;transform:translate(-50%,-50%);width:560px;height:560px;border-radius:50%;background:radial-gradient(circle at 50% 50%,color-mix(in oklab,var(--acc) 48%,transparent),color-mix(in oklab,var(--acc) 18%,transparent) 42%,transparent 70%);animation:kmPulse 6s ease-in-out infinite',
           )}
         />
         <span
+          className="km-hero-float-dot"
           style={css(
             'position:absolute;top:4%;left:6%;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.12);animation:kmFloatA 5s ease-in-out infinite',
           )}
         />
         <span
+          className="km-hero-float-dot"
           style={css(
             'position:absolute;top:16%;right:5%;width:14px;height:14px;border-radius:50%;background:var(--text);animation:kmFloatB 6s ease-in-out infinite',
           )}
         />
         <span
+          className="km-hero-float-dot"
           style={css(
             'position:absolute;top:44%;right:-1%;width:22px;height:22px;border-radius:50%;background:var(--acc);box-shadow:0 6px 16px color-mix(in oklab,var(--acc) 50%,transparent);animation:kmFloatC 7s ease-in-out infinite',
           )}
         />
         <span
+          className="km-hero-float-dot"
           style={css(
             'position:absolute;bottom:26%;left:2%;width:16px;height:16px;border-radius:50%;background:#3B6CF6;animation:kmFloatB 5.5s ease-in-out infinite',
           )}
@@ -129,8 +138,9 @@ export default function Hero() {
         <img
           src={heroPortrait}
           alt="Kim Magno"
+          className="km-hero-portrait"
           style={css(
-            'position:absolute;bottom:-38px;left:50%;transform:translateX(-50%);height:100%;width:auto;max-width:118%;display:block;-webkit-mask-image:linear-gradient(to bottom,#000 74%,rgba(0,0,0,0.55) 88%,transparent 100%),radial-gradient(150px 130px at 8% 100%,transparent 0%,rgba(0,0,0,0.5) 55%,#000 85%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 74%,rgba(0,0,0,0.55) 88%,transparent 100%),radial-gradient(150px 130px at 8% 100%,transparent 0%,rgba(0,0,0,0.5) 55%,#000 85%);mask-composite:intersect',
+            'position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:bottom center;display:block;-webkit-mask-image:linear-gradient(to bottom,#000 74%,rgba(0,0,0,0.55) 88%,transparent 100%),radial-gradient(150px 130px at 8% 100%,transparent 0%,rgba(0,0,0,0.5) 55%,#000 85%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 74%,rgba(0,0,0,0.55) 88%,transparent 100%),radial-gradient(150px 130px at 8% 100%,transparent 0%,rgba(0,0,0,0.5) 55%,#000 85%);mask-composite:intersect',
           )}
         />
       </div>

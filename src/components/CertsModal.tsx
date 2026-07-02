@@ -10,17 +10,24 @@ export default function CertsModal({ certs, onClose }: CertsModalProps) {
   return (
     <div
       onClick={onClose}
+      className="km-modal-backdrop"
       style={css(
         'position:fixed;inset:0;z-index:220;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(8,9,11,.55);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)',
       )}
     >
       <div
         onClick={(e) => e.stopPropagation()}
+        className="km-modal-panel"
         style={css(
           'position:relative;width:min(640px,100%);max-height:86vh;display:flex;flex-direction:column;background:var(--page-bg);border:1px solid var(--line);border-radius:26px;box-shadow:0 30px 90px rgba(0,0,0,.45);overflow:hidden',
         )}
       >
-        <div style={css('display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:24px 28px;border-bottom:1px solid var(--line)')}>
+        <div
+          className="km-modal-header"
+          style={css(
+            'display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:24px 28px;border-bottom:1px solid var(--line)',
+          )}
+        >
           <div>
             <div style={css("font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)")}>
               Credentials
@@ -40,7 +47,7 @@ export default function CertsModal({ certs, onClose }: CertsModalProps) {
             </svg>
           </button>
         </div>
-        <div style={css('padding:8px 28px 24px;overflow:auto')}>
+        <div className="km-modal-body" style={css('padding:8px 28px 24px;overflow:auto')}>
           {certs.map((c) => (
             <div key={c.no} style={css('display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line)')}>
               <span style={css("font-family:'Space Mono',monospace;font-size:12px;color:var(--acc);flex:none;padding-top:2px")}>{c.no}</span>

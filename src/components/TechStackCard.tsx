@@ -12,7 +12,7 @@ export default function TechStackCard() {
       <div style={css('display:flex;align-items:center;justify-content:space-between')}>
         <span style={css('font-weight:600;font-size:17px;letter-spacing:-.01em')}>Core Expertise</span>
       </div>
-      <div style={css('display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:18px')}>
+      <div className="km-techstack-grid" style={css('display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:18px')}>
         <div style={css('display:flex;flex-direction:column;align-items:center;gap:8px')}>
           <span
             style={css(

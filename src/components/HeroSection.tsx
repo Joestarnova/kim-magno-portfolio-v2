@@ -16,10 +16,10 @@ interface HeroSectionProps {
 
 export default function HeroSection({ certs, onViewAllCerts }: HeroSectionProps) {
   return (
-    <div style={css('display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:stretch;margin-top:44px')}>
-      <div style={css('display:flex;flex-direction:column;gap:16px')}>
+    <div className="km-hero-grid" style={css('display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:stretch;margin-top:44px')}>
+      <div className="km-hero-col" style={css('display:flex;flex-direction:column;gap:16px')}>
         <Hero />
-        <div style={css('display:flex;gap:16px;flex:1;align-items:stretch')}>
+        <div className="km-two-col-row" style={css('display:flex;gap:16px;flex:1;align-items:stretch')}>
           <ExperienceCard />
           <CertificationsCard certs={certs} onViewAll={onViewAllCerts} />
         </div>

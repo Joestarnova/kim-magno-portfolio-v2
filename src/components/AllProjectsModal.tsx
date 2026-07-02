@@ -12,17 +12,22 @@ export default function AllProjectsModal({ projects, onClose, onOpenDetail }: Al
   return (
     <div
       onClick={onClose}
+      className="km-modal-backdrop"
       style={css(
         'position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(8,9,11,.55);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)',
       )}
     >
       <div
         onClick={(e) => e.stopPropagation()}
+        className="km-modal-panel"
         style={css(
           'position:relative;width:min(1120px,100%);max-height:86vh;display:flex;flex-direction:column;background:var(--page-bg);border:1px solid var(--line);border-radius:26px;box-shadow:0 30px 90px rgba(0,0,0,.45);overflow:hidden',
         )}
       >
-        <div style={css('display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 28px;border-bottom:1px solid var(--line)')}>
+        <div
+          className="km-modal-header"
+          style={css('display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 28px;border-bottom:1px solid var(--line)')}
+        >
           <div>
             <div style={css("font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)")}>
               All projects
@@ -42,8 +47,8 @@ export default function AllProjectsModal({ projects, onClose, onOpenDetail }: Al
             </svg>
           </button>
         </div>
-        <div style={css('flex:1;min-height:0;overflow:auto;padding:24px 28px 30px')}>
-          <div style={css('display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px')}>
+        <div className="km-modal-body" style={css('flex:1;min-height:0;overflow:auto;padding:24px 28px 30px')}>
+          <div className="km-projects-grid" style={css('display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px')}>
             {projects.map((p) => (
               <ProjectGridCard key={p.no} project={p} onOpenDetail={onOpenDetail} />
             ))}

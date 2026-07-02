@@ -404,3 +404,254 @@ body {
   border-color: #f5f1e8;
   transform: translateY(-2px);
 }
+
+/* ================= Responsive ================= */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* nav hamburger button: hidden on desktop, shown on mobile */
+.km-nav-burger {
+  display: none;
+}
+
+/* ---- tablet: stack the two-column hero layout ---- */
+@media (max-width: 1024px) {
+  .km-container {
+    padding: 18px 20px 32px !important;
+  }
+  .km-hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* the hero card's own available width (not the viewport) decides when it
+   collapses — a viewport breakpoint alone can't tell whether the 340px
+   sidebar has already stacked, so the portrait would keep shrinking past
+   a comfortable size before any breakpoint fired. A container query reacts
+   to the card's real rendered width, giving the portrait a hard floor:
+   once the card can't offer each column at least ~340px, it stacks
+   instead of continuing to shrink the image down. */
+.km-hero-col {
+  container-type: inline-size;
+}
+
+@container (max-width: 780px) {
+  .km-hero-card {
+    grid-template-columns: 1fr !important;
+    min-height: 0 !important;
+    padding: 26px !important;
+  }
+  /* portrait switches from an absolute bleed-crop to a simple flowed
+     image below the copy */
+  .km-hero-right {
+    position: relative !important;
+    min-height: 0 !important;
+    margin-top: 20px;
+  }
+  .km-hero-visual-glow,
+  .km-hero-float-dot {
+    display: none !important;
+  }
+  .km-hero-portrait {
+    position: static !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+    border-radius: 18px !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+  .km-hero-bio-wrap {
+    max-width: 100% !important;
+  }
+  .km-hero-bio-text {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@container (max-width: 460px) {
+  .km-hero-card {
+    padding: 20px !important;
+  }
+  .km-hero-portrait {
+    max-width: 220px !important;
+  }
+}
+
+/* ---- mobile: nav, hero card, sections, grids ---- */
+@media (max-width: 768px) {
+  .km-container {
+    padding: 14px 14px 28px !important;
+  }
+
+  /* nav collapses behind a hamburger toggle */
+  .km-nav-header {
+    padding: 8px !important;
+  }
+  .km-nav-burger {
+    display: flex !important;
+  }
+  .km-nav-links {
+    display: none !important;
+  }
+  .km-nav-links.km-nav-open {
+    display: flex !important;
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    flex-direction: column !important;
+    gap: 3px !important;
+    background: var(--card) !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 20px !important;
+    padding: 8px !important;
+    box-shadow: var(--shadow) !important;
+    z-index: 150 !important;
+  }
+  .km-nav-links.km-nav-open a {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 13px !important;
+    font-size: 15px !important;
+    box-sizing: border-box !important;
+  }
+  .km-nav-spacer {
+    display: none !important;
+  }
+
+  .km-section-spacer {
+    margin-top: 110px !important;
+  }
+  .km-section-header-row {
+    margin-top: 110px !important;
+  }
+
+  .km-two-col-row {
+    flex-direction: column !important;
+  }
+
+  .km-techstack-grid {
+    gap: 10px !important;
+  }
+
+  .km-skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .km-work-carousel-row {
+    gap: 8px !important;
+  }
+  .km-work-carousel-row .carousel-nav-btn {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .km-contact-info {
+    min-width: 0 !important;
+    width: 100%;
+  }
+
+  .km-modal-backdrop {
+    padding: 12px !important;
+  }
+  .km-modal-header {
+    padding: 18px 20px !important;
+  }
+  .km-modal-body {
+    padding: 16px 20px 22px !important;
+  }
+  .km-projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+  }
+  .km-detail-image {
+    height: 220px !important;
+  }
+}
+
+/* ---- narrow phones: the 3D peeking side-cards get cramped once the
+   viewport can't spare width for them, so show only the active project
+   full-width instead of three squeezed-together cards. Switching it out
+   of absolute positioning lets the card's own content set the height,
+   so nothing gets clipped regardless of how much the description wraps. */
+@media (max-width: 640px) {
+  .km-carousel-viewport {
+    height: auto !important;
+  }
+  .km-carousel-card:not(.km-carousel-card-active) {
+    display: none !important;
+  }
+  .km-carousel-card.km-carousel-card-active {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+  .km-carousel-card.km-carousel-card-active .km-carcard {
+    height: auto !important;
+  }
+  .km-carousel-img-wrap {
+    height: 200px !important;
+  }
+}
+
+/* ---- small phones ---- */
+@media (max-width: 480px) {
+  .km-container {
+    padding: 12px 12px 24px !important;
+  }
+
+  .km-nav-name {
+    display: none !important;
+  }
+
+  .km-section-spacer {
+    margin-top: 80px !important;
+  }
+  .km-section-header-row {
+    margin-top: 80px !important;
+  }
+
+  .km-techstack-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    row-gap: 18px !important;
+  }
+
+  .km-skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .km-work-carousel-row .carousel-nav-btn {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .km-work-carousel-row .carousel-nav-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .km-carousel-img-wrap {
+    height: 170px !important;
+  }
+  /* too tight for a description at this width — drop it rather than
+     cramp the card, title + stack tags still convey what it is */
+  .km-carousel-desc {
+    display: none !important;
+  }
+
+  .km-projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

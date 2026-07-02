@@ -20,7 +20,7 @@ const SOCIAL_LINKS = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" style={css('margin-top:210px;scroll-margin-top:110px;position:relative')}>
+    <section id="contact" className="km-section-spacer" style={css('margin-top:210px;scroll-margin-top:110px;position:relative')}>
       <TiltCard
         style={css(
           'position:relative;border-radius:24px;overflow:hidden;min-height:210px;display:flex;align-items:center;border:1px solid var(--glass-bd);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.28)',
@@ -50,7 +50,7 @@ export default function ContactSection() {
             'position:relative;z-index:2;flex:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;padding:clamp(28px,4vw,48px)',
           )}
         >
-          <div style={css('min-width:280px;align-self:stretch;display:flex;flex-direction:column')}>
+          <div className="km-contact-info" style={css('min-width:280px;align-self:stretch;display:flex;flex-direction:column')}>
             <div style={css('flex:1;display:flex;align-items:center')}>
               <h2
                 style={css(

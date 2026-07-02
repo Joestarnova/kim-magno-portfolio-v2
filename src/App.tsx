@@ -12,7 +12,7 @@ import { CERTS, PROJECTS, SKILLS } from './data';
 const ACCENT = 'violet';
 
 function App() {
-  const { theme, toggleTheme, toggleRef } = useTheme('light');
+  const { theme, toggleTheme, toggleRef } = useTheme('dark');
   const [certsOpen, setCertsOpen] = useState(false);
 
   return (
@@ -24,7 +24,7 @@ function App() {
         "min-height: 100vh; background: var(--page-bg); color: var(--text); font-family: 'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif; -webkit-font-smoothing: antialiased; text-align: left",
       )}
     >
-      <div style={css('max-width:1360px;margin:0 auto;padding:20px 24px 40px')}>
+      <div className="km-container" style={css('max-width:1360px;margin:0 auto;padding:20px 24px 40px')}>
         <Nav toggleTheme={toggleTheme} toggleRef={toggleRef} />
         <HeroSection certs={CERTS} onViewAllCerts={() => setCertsOpen(true)} />
         <WorkSection projects={PROJECTS} />

@@ -9,14 +9,16 @@ interface CarouselCardProps {
   opacity: number;
   zIndex: number;
   pointerEvents: 'auto' | 'none';
+  isActive: boolean;
   onOpenDetail: (project: Project) => void;
 }
 
-export default function CarouselCard({ project, transform, opacity, zIndex, pointerEvents, onOpenDetail }: CarouselCardProps) {
+export default function CarouselCard({ project, transform, opacity, zIndex, pointerEvents, isActive, onOpenDetail }: CarouselCardProps) {
   const isAutomation = project.cat !== 'web';
 
   return (
     <div
+      className={isActive ? 'km-carousel-card km-carousel-card-active' : 'km-carousel-card'}
       style={{
         position: 'absolute',
         left: '50%',
@@ -53,6 +55,7 @@ export default function CarouselCard({ project, transform, opacity, zIndex, poin
         <div
           role="img"
           aria-label={project.title}
+          className="km-carousel-img-wrap"
           style={css(
             'position:relative;z-index:1;flex:none;height:238px;background:transparent;overflow:hidden;padding:15px;display:flex;align-items:center;justify-content:center',
           )}
@@ -66,7 +69,10 @@ export default function CarouselCard({ project, transform, opacity, zIndex, poin
         </div>
         <div style={css('position:relative;z-index:1;padding:22px 22px 18px;display:flex;flex-direction:column;gap:12px;flex:1')}>
           <div style={css('font-weight:600;font-size:21px;letter-spacing:-.015em;line-height:1.15')}>{project.title}</div>
-          <p style={css('margin:0;color:var(--card-desc-c, var(--muted));font-size:14px;line-height:1.55;transition:color .45s ease')}>
+          <p
+            className="km-carousel-desc"
+            style={css('margin:0;color:var(--card-desc-c, var(--muted));font-size:14px;line-height:1.55;transition:color .45s ease')}
+          >
             {project.desc}
           </p>
           <div style={css('display:flex;flex-wrap:wrap;gap:6px;margin-top:9px')}>

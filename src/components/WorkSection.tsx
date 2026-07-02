@@ -55,6 +55,7 @@ export default function WorkSection({ projects }: WorkSectionProps) {
           opacity: visible ? (off === 0 ? 1 : 0.5) : 0,
           zIndex: off === 0 ? 30 : visible ? 20 : 5,
           pointerEvents: (off === 0 ? 'auto' : 'none') as 'auto' | 'none',
+          isActive: off === 0,
         };
       }),
     [filtered, active, n],
@@ -67,7 +68,10 @@ export default function WorkSection({ projects }: WorkSectionProps) {
 
   return (
     <section id="work" style={css('scroll-margin-top:110px')}>
-      <div style={css('display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:210px 0 22px')}>
+      <div
+        className="km-section-header-row"
+        style={css('display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:210px 0 22px')}
+      >
         <div>
           <div style={css("font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)")}>
             02 — Selected work
@@ -101,7 +105,7 @@ export default function WorkSection({ projects }: WorkSectionProps) {
         </div>
       </div>
 
-      <div style={css('position:relative;margin-top:44px;display:flex;align-items:center;gap:16px')}>
+      <div className="km-work-carousel-row" style={css('position:relative;margin-top:44px;display:flex;align-items:center;gap:16px')}>
         <button
           onClick={() => setActiveIndex((i) => i - 1)}
           aria-label="Previous project"
@@ -114,7 +118,7 @@ export default function WorkSection({ projects }: WorkSectionProps) {
             <path d="M15 18l-6-6 6-6" />
           </svg>
         </button>
-        <div style={css('position:relative;flex:1;height:478px;perspective:1700px')}>
+        <div className="km-carousel-viewport" style={css('position:relative;flex:1;height:478px;perspective:1700px')}>
           {carousel.map((c) => (
             <CarouselCard
               key={c.project.no}
@@ -123,6 +127,7 @@ export default function WorkSection({ projects }: WorkSectionProps) {
               opacity={c.opacity}
               zIndex={c.zIndex}
               pointerEvents={c.pointerEvents}
+              isActive={c.isActive}
               onOpenDetail={setDetailProject}
             />
           ))}

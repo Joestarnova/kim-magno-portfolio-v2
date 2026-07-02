@@ -12,12 +12,14 @@ export default function ProjectDetailModal({ project, onClose }: ProjectDetailMo
   return (
     <div
       onClick={onClose}
+      className="km-modal-backdrop"
       style={css(
         'position:fixed;inset:0;z-index:220;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(8,9,11,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)',
       )}
     >
       <div
         onClick={(e) => e.stopPropagation()}
+        className="km-modal-panel"
         style={css(
           'position:relative;width:min(720px,100%);max-height:88vh;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:26px;box-shadow:0 30px 90px rgba(0,0,0,.45);overflow:hidden',
         )}
@@ -34,10 +36,15 @@ export default function ProjectDetailModal({ project, onClose }: ProjectDetailMo
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </button>
-        <div role="img" aria-label={project.title} style={css(`position:relative;height:360px;flex:none;background:${tileBg(project)}`)}>
+        <div
+          role="img"
+          aria-label={project.title}
+          className="km-detail-image"
+          style={css(`position:relative;height:360px;flex:none;background:${tileBg(project)}`)}
+        >
           {!project.img && <span style={css(numStyle(project))}>{project.no}</span>}
         </div>
-        <div style={css('flex:1;min-height:0;overflow:auto;padding:30px 34px 36px')}>
+        <div className="km-modal-body" style={css('flex:1;min-height:0;overflow:auto;padding:30px 34px 36px')}>
           <ProjectTag project={project} position="" />
           <h3 style={css('margin:16px 0 0;font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.2')}>{project.title}</h3>
           <p style={css('margin:14px 0 0;color:var(--muted);font-size:15px;line-height:1.6;max-width:560px')}>{project.desc}</p>
