@@ -140,7 +140,7 @@ export default function Hero() {
           alt="Kim Magno"
           className="km-hero-portrait"
           style={css(
-            'position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:bottom center;display:block;-webkit-mask-image:linear-gradient(to bottom,#000 74%,rgba(0,0,0,0.55) 88%,transparent 100%),radial-gradient(150px 130px at 8% 100%,transparent 0%,rgba(0,0,0,0.5) 55%,#000 85%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 74%,rgba(0,0,0,0.55) 88%,transparent 100%),radial-gradient(150px 130px at 8% 100%,transparent 0%,rgba(0,0,0,0.5) 55%,#000 85%);mask-composite:intersect',
+            'position:absolute;top:0;left:0;right:0;width:100%;height:calc(100% + 38px);object-fit:contain;object-position:bottom center;display:block;-webkit-mask-image:linear-gradient(to bottom,#000 74%,rgba(0,0,0,0.55) 88%,transparent 100%),radial-gradient(150px 130px at 8% 100%,transparent 0%,rgba(0,0,0,0.5) 55%,#000 85%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 74%,rgba(0,0,0,0.55) 88%,transparent 100%),radial-gradient(150px 130px at 8% 100%,transparent 0%,rgba(0,0,0,0.5) 55%,#000 85%);mask-composite:intersect',
           )}
         />
       </div>
